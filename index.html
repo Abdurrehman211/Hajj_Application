@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAJJ FORM</title>
+    <link rel="stylesheet" type="text/css" href="/Bootstrap/style3-1.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-4 mb-5">
+        <div class="block" id="block">
+        <div class="row ">
+            <div class="col-12 col-md-6 col-lg-6 mt-3  " id="pkg-div">
+                <label for="Package-selection" class="form-label">Packages*</label><br>
+                <select id="Package-selection" onchange="packages1()">
+                    <option value="15 Days" >15 Days</option>
+                    <option value="21 Days" >21 Days</option>
+                    <option value="30 Days" >30 Days</option>
+                    <option value="Others" >Others</option>
+                </select>                    
+               
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 mt-3 ">
+                <label for="hoteltype-selection" class="form-label" >Hotel Type*</label><br>
+                <select id="hoteltype-selection" onchange="hoteltype1()" >
+                    <option value="Quad-room">Quad-room</option>
+                    <option value="Sharing">Sharing</option>
+                    <option value="Triple Room">Triple Room</option>
+                    <option value="Double Room">Double Room</option>
+                </select>                    
+            </div>    
+                
+           
+        </div>
+        <script>
+            var nights1,night2;
+            function nightMak(){
+                nights1=parseInt(document.getElementById('ngt-Makkah').value);
+                console.log('Nights in Makkah:',nights1);
+            }
+            function nightMad(){
+                night2=parseInt(document.getElementById('ngt-Madina').value);
+                console.log('Nights in Madina:',night2);
+            }
+        </script>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 mt-2" >
+                <label for="ngt-Makkah" class="form-label" style="padding-right: 20px;">Nights in Makkah*</label><br>
+                <input type="text" id="ngt-Makkah" oninput="nightMak()" required placeholder="Nights">
+               </div>
+               <div class="col-12 col-md-6 col-lg-6 mt-2">
+                <label for="ngt-Madina" class="form-label" style="padding-right: 20px;">Nights in Madina*</label><br>
+                <input type="text" id="ngt-Madina"  required oninput="nightMad()" placeholder="Nights">
+               </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 mt-2">
+                    <label for="hotel-selection" class="form-label">Makkah Hotel*</label><br>
+                    <select id="hotel-selection" onchange="hotel1()" >
+                        <option value="hotel1 2-star">Hotel-1 2-star</option>
+                        <option value="hotel2 3-Star">Hotel 2 3-Star</option>
+                        <option value="hotel3 4-Star">Hotel 3 4-Star</option>
+                    </select>                    
+                </div>    
+            <div class="col-12 col-md-6 col-lg-6 mt-2">
+                <label for="madina-hotel-selection" class="form-label" style="padding-right: 40px;">Madina hotel*</label><br>
+                <select id="madina-hotel-selection" onchange="hotel4()">
+                    <option value="hotel1 3-stars">Hotel 1 3-stars</option>
+                    <option value="hotel2 4-stars">Hotel 2 4-stars</option>
+                    <option value="hotel3 2-stars">Hotel 3 2-stars</option>
+                </select>
+            </div>
+        </div>
+        <script>
+            var price,price1;
+            function Makkahprice(){
+                price=parseInt(document.getElementById("Pricelabel").value)
+                console.log('Price:',price);
+            }
+            function Madinaprice(){
+                price1=parseInt(document.getElementById("Pricelabel1").value)
+                console.log('Price1:',price1);
+            }
+        </script>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 mt-2 ">
+                <label for="Pricelabel" class="form-label" style="padding-right: 20px;">Makkah Hotel Price*</label><br>
+                <input id="Pricelabel" type="text" placeholder="Price" oninput="Makkahprice()"  required>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6  mt-2">
+                <label for="Pricelabel1" class="form-label" style="padding-right: 20px;">Madina Hotel Price*</label><br>
+                <input id="Pricelabel1" type="text" placeholder="Price" oninput="Madinaprice()" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 mt-2 ">
+                <label for="exg-rate" class="form-label" style="padding-right: 30px;">Exchange rate (SAR to PKR)*</label><br>
+                <input type="text" id="exg-rate" readonly required placeholder="Exchange rate">
+            </div>
+            <div class="col-12 col-md-6   mt-2">
+                <label for="Visa-fee" class="form-label" style="padding-right: 25px;">Visa Fee(in Dirham)*</label><br>
+            <input type="text" id="Visa-fee" required placeholder="Visa fee">
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 mt-2 ">
+                <label for="Airline-selection" class="form-label" style="padding-right: 40px;">Airlines*</label><br>
+                <select id="Airline-selection" onchange="airline()">
+                    <option value="Saudi Airline" id="Airline1" >Saudi Airline</option>
+                    <option value="PIA">PIA</option>
+                    <option value="Emirates">Emirates</option>
+                    <option value="Sial Airways">Sial Airways</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-6 mt-2">
+                <label for="airline-price" class="form-label" style="padding-right: 20px;">Airline Fare(in Dirham)*</label><br>
+            <input type="text" id="airline-price" required oninput="airprice()" placeholder="Airline fees" >
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-12 col-md-6 col-sm-6 mt-2">
+            <label for="Class" class="form-label">Airline Class*</label>
+            <select name="Airline class" id="airline_class">
+                <option value="1st Class">1st Class</option>
+                <option value="Business Class">Business Class</option>
+                <option value="Economy class">Economy Class</option>
+            </select>
+           </div>
+           <div class="col-12 col-md-6 col-sm-6 mt-2">
+            <label for="person" class="form-label">No of Person*</label>
+            <input type="text" id="person" placeholder="No of persons">
+           </div>
+        </div>
+
+<br><br>
+            <div class="row" >
+                <div class="col-12  mt-2">
+                    <button type="submit" id="calculate" class="btn btn-light btn-outline-dark" onclick="visa(); calculate(); calculate1();show();">Calculate</button>
+                </div>
+            </div>
+        </div>
+        <div class="block1" id="block1">
+        <div class="row">
+            <div class="col-12  mt-2" style="text-align:left; border-bottom: 1px solid rgb(255, 255, 255);">
+                <label class="form-label" id="total">Details*</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3 " >
+                <label class="form-label" for="Visa-price">Visa Fee*</label><br>
+                <input type="text" required readonly id="Visa-price" placeholder="Visa fee">
+                <label style="font-size: x-large;" >+</label>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 ">
+                <label class="form-label" for="Hotel-price">Hotel Price*</label><br>
+            <input type="text" required readonly id="Hotel-price" placeholder="Hotel Price">
+            <label style="font-size: x-large;" >+</label>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 ">
+                <label class="form-label" for="Airline-fare" >Airline Fare*</label><br>
+                <input type="text" required readonly id="Airline-fare" placeholder="Airline fare">
+                <label style="font-size: x-large;" >=</label>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 ">
+                <label class="form-label" for="total-price" >Total Price*</label><br>
+                <input type="text" required id="total-price" placeholder="Total price">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 col-sm-12 mt-1">
+                <label for="number" class="form-label">Contact No:</label>
+                <input type="text" id="number" required placeholder="whatsapp No" >
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-4">
+                <label for="check1" class="form-label">Airline</label>
+                <input type="checkbox" id="check1"  value="Airline-fare_checked">
+            </div>
+            <div class="col-sm-4">
+                <label for="check12" class="form-label">Visa</label>
+                <input type="checkbox" id="check2"  value="visaChecked">
+            </div>
+        </div>
+        <div class="row" style="text-align: center;">
+            <div class="col-12 col-md-6 mt-4  mb-3">
+                <input type="button" id="submit" value="Send" onclick="save();">
+             </div>
+            <div class="col-12 col-md-6 mt-4  mb-3">
+                <button id="reset" onclick="deleteData()">Reset</button>
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="./javascript1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="/Assignments/jscript3.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
