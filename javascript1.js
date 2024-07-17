@@ -807,3 +807,32 @@ window.onload = async function () {
    retrieve();
    fetchExchangeRate();
 };
+function ModeChange() {
+    const checkbox = document.querySelector('.bb8-toggle__checkbox');
+    const body = document.body; 
+   
+    if (checkbox.checked) {
+      
+      body.classList.add('dark-theme');
+      body.classList.remove('light-theme');
+      localStorage.setItem('theme', 'dark-theme');
+    } else {
+ 
+      body.classList.add('light-theme');
+      body.classList.remove('dark-theme');
+      localStorage.setItem('theme', 'light-theme');
+    }
+  }
+  
+  // Load the saved theme from localStorage
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const checkbox = document.querySelector('.bb8-toggle__checkbox');
+  
+    if (savedTheme) {
+      document.body.classList.add(savedTheme);
+      checkbox.checked = savedTheme === 'dark-theme';
+    } else {
+      document.body.classList.add('light-theme');
+    }
+  });
